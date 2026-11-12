@@ -1,12 +1,12 @@
-// config/database.js
+// config/database.js — versão PostgreSQL (Render)
 require('dotenv').config();
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+// DATABASE_URL: no Render use a Internal Database URL;
+// na sua máquina use a External Database URL.
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }   // o Render exige conexão criptografada
 });
 
 module.exports = pool;

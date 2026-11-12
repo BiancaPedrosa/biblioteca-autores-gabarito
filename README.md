@@ -4,6 +4,8 @@ Aplicação web de uma pequena biblioteca: o usuário cria uma conta, faz login 
 
 Este repositório é o **gabarito (resolução)** da **AV1** da disciplina Desenvolvimento Web 2 (CMPDWE2), curso TADS do IFSP Campus Campinas, 2026.2. Profa. Bianca Pedrosa.
 
+> **Branch `render-postgres`:** esta é a versão adaptada para hospedar no **Render com PostgreSQL**. Usa o driver `pg` no lugar do `mysql2`, placeholders `$1, $2…` no lugar de `?` e `ILIKE` na busca. A conexão vem de uma única variável, `DATABASE_URL`, e as tabelas estão em `sql/schema.sql` (sintaxe Postgres). A versão original da prova, com MySQL local, está na branch `main`.
+
 **Tecnologias:** Node.js · Express · EJS · MySQL (mysql2) · express-session · bcryptjs · arquitetura MVC
 
 ---

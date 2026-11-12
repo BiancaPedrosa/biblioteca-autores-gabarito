@@ -1,23 +1,22 @@
-CREATE DATABASE IF NOT EXISTS biblioteca;
-
-USE biblioteca;
+-- schema.sql — versão PostgreSQL (Render)
+-- Rode conectado ao banco do Render (não precisa CREATE DATABASE).
 
 CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS livros (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     autor VARCHAR(255) NOT NULL,
     ano INT
 );
 
 CREATE TABLE IF NOT EXISTS autores (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     nacionalidade VARCHAR(100)
 );
