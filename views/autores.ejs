@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Autores — Biblioteca da Turma</title>
+</head>
+<body>
+    <header>
+        <p>Olá, <%= username %>!</p>
+        <form method="POST" action="/logout">
+            <button type="submit">Sair</button>
+        </form>
+    </header>
+
+    <h1>Autores</h1>
+    <a href="/livros">Ver livros</a>
+
+    <form method="GET" action="/autores">
+        <input name="busca" placeholder="Buscar por nome">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Cadastrar autor</h2>
+    <form method="POST" action="/autores">
+        <input name="nome" placeholder="Nome" required>
+        <input name="nacionalidade" placeholder="Nacionalidade">
+        <button type="submit">Salvar</button>
+    </form>
+
+    <% if (autores.length === 0) { %>
+        <p>Nenhum autor encontrado.</p>
+    <% } else { %>
+        <table border="1">
+            <tr><th>ID</th><th>Nome</th><th>Nacionalidade</th><th></th></tr>
+            <% autores.forEach(autor => { %>
+                <tr>
+                    <td><%= autor.id %></td>
+                    <td><%= autor.nome %></td>
+                    <td><%= autor.nacionalidade %></td>
+                    <td>
+                        <form method="POST" action="/autores/<%= autor.id %>/delete">
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca da Turma</title>
+</head>
+<body>
+    <header>
+        <p>Olá, <%= username %>!</p>
+        <form method="POST" action="/logout">
+            <button type="submit">Sair</button>
+        </form>
+    </header>
+
+    <h1>Biblioteca da Turma</h1>
+    <a href="/livros/novo">+ Cadastrar livro</a> · <a href="/autores">Autores</a>
+    <p>Total: <%= livros.length %> livros</p>
+
+    <% if (livros.length === 0) { %>
+        <p>Nenhum livro cadastrado ainda.</p>
+    <% } else { %>
+        <table border="1">
+            <tr><th>Título</th><th>Autor</th><th>Ano</th><th></th></tr>
+            <% livros.forEach(livro => { %>
+                <tr>
+                    <td><%= livro.titulo %></td>
+                    <td><%= livro.autor %></td>
+                    <td><%= livro.ano %></td>
+                    <td>
+                        <form method="POST" action="/livros/<%= livro.id %>/delete">
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+</body>
+</html>

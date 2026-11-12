@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo livro</title>
+</head>
+<body>
+    <h1>Cadastrar livro</h1>
+    <form method="POST" action="/livros">
+        <input name="titulo" placeholder="Título" required>
+        <input name="autor" placeholder="Autor" required>
+        <input name="ano" type="number" placeholder="Ano">
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="/livros">Voltar</a>
+</body>
+</html>
